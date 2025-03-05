@@ -1,0 +1,19 @@
+.env
+
+# Whole folders
+data/
+icons/
+libmev_data/
+reports/
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+
+# Specific extensions
+*.ipynb
+*.json
+*.zip
+
+# Extensions in folders
+reports/*.xlsx
+reports/*.csv
