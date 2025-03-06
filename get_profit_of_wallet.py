@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 from lib_etherscan_funcs import get_address_tx_hashes_and_blocks
 from chain_lib import w3_deejmon_http, deejmon_http, chain_data, minimal_abi
 from block_calculation_engine import get_timestamps, fetch_block_number, main
-from metadata import miner
+from metadata import miner_map, token_contracts, weth_contract, usdt_contract, usdc_contract, stETH_contract, address_list
 
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -45,7 +45,7 @@ load_dotenv()
 def connect_with_retries(web3, retries=5, delay=0.1):
     for attempt in range(retries):
         if web3.is_connected():
-            print("Connected to Ethereum node!")
+            # print("Connected to Ethereum node!")
             return True
         else:
             print(f"Connection attempt {attempt + 1} failed. Retrying in {delay} seconds...")
@@ -72,13 +72,13 @@ def restructure_df(df):
 
     return pd.DataFrame(restructured_data).transpose()
 
-selected_periods = [ "current_datetime", "yesterday", "midnight", "yesterday_midnight", "start_of_week", "start_of_month"] # "start_of_1w"]
+selected_periods = [ "current_datetime", "yesterday", "midnight", "yesterday_midnight"] #, "start_of_week", "start_of_month"] # "start_of_1w"]
 
 time_data = main(["Ethereum"], selected_periods)
 
-address_list = os.environ.get("address_list").split(",")
+# address_list = os.environ.get("address_list").split(",")
 
-start_block = int(time_data['yesterday']['Ethereum']['block_number'])
+start_block = int(time_data['yesterday_midnight']['Ethereum']['block_number'])
 
 usdc_address = chain_data['Ethereum']['usdc_address']
 usdc_proxy = Web3.to_checksum_address("0x43506849d7c04f9138d1a2050bbf3a0c054402dd")
@@ -863,7 +863,7 @@ class BundleFetcher:
                total_count = initial_response['count']
                all_data.extend(initial_response['data'])
 
-               self.pbar = tqdm(total=total_count, desc=f"Fetching libMEV bundles for {address[:10]}...")
+               self.pbar = tqdm(total=total_count, desc=f"   - Fetching libMEV bundles for {address[:10]}...")
                self.pbar.update(len(initial_response['data']))
 
                semaphore = asyncio.Semaphore(self.max_concurrent)
@@ -984,6 +984,77 @@ def libmev_data(combined_df):
 
 nest_asyncio.apply()
 
+def fetch_trace_data_in_batches(W3, tx_list, block_results, block_miners, batch_size=200):
+    """
+    Fetch transaction traces in smaller batches to avoid timeouts or memory issues.
+    
+    Args:
+        W3: Web3 instance
+        tx_list: List of transaction hashes
+        block_results: List of block data
+        block_miners: Dictionary mapping block numbers to miner addresses
+        batch_size: Maximum number of transactions per batch
+        
+    Returns:
+        List of processed trace details for all transactions
+    """
+    all_trace_results = []
+    all_trace_details = []
+    
+    # Calculate number of batches
+    num_batches = (len(tx_list) + batch_size - 1) // batch_size
+    
+    print(f"   - Fetching transaction traces in {num_batches} batches of up to {batch_size} transactions each...")
+    
+    for batch_idx in range(num_batches):
+        start_idx = batch_idx * batch_size
+        end_idx = min((batch_idx + 1) * batch_size, len(tx_list))
+        current_batch = tx_list[start_idx:end_idx]
+        
+        print(f"   - Processing batch {batch_idx + 1}/{num_batches} with {len(current_batch)} transactions...")
+        
+        # Create batch request for current chunk
+        batch = W3.batch_requests()
+        for tx_hash in current_batch:
+            tx_hash = tx_hash.hex() if isinstance(tx_hash, HexBytes) else tx_hash
+            batch.add(W3.tracing.trace_transaction(tx_hash))
+        
+        # Execute batch and append results
+        try:
+            trace_results = batch.execute()
+            all_trace_results.extend(trace_results)
+            
+            # Process this batch of traces immediately to free up memory
+            batch_trace_details = trace_list_generator(block_results, trace_results, block_miners)
+            all_trace_details.extend(batch_trace_details)
+            
+            print(f"✅ Completed batch {batch_idx + 1}/{num_batches}")
+            
+        except Exception as e:
+            print(f"⚠️ Error in batch {batch_idx + 1}: {str(e)}")
+            print(f"Attempting to reduce batch size and retry...")
+            
+            # If this batch fails, try with a smaller batch size (recursive approach)
+            if batch_size > 50:  # Set a reasonable minimum batch size
+                smaller_batch_size = batch_size // 2
+                print(f"Retrying with batch size {smaller_batch_size}")
+                # Recursive call with smaller batch size for the remaining transactions
+                remaining_trace_details = fetch_trace_data_in_batches(
+                    W3, 
+                    tx_list[start_idx:], 
+                    block_results, 
+                    block_miners, 
+                    smaller_batch_size
+                )
+                all_trace_details.extend(remaining_trace_details)
+                break  # Break out of the loop since we've handled the rest recursively
+            else:
+                print(f"⚠️ Batch size already at minimum. Some transactions may be skipped.")
+                continue
+    
+    print(f"✅ Fetched all transaction traces ({len(all_trace_details)} of {len(tx_list)} expected)")
+    return all_trace_details
+
 def process_address(address, start_block):
     """Process a single address"""
     address = Web3.to_checksum_address(address.lower())
@@ -1026,13 +1097,17 @@ def process_address(address, start_block):
     receipt_details = receipt_list_generator(receipt_results)
     print(f"✅ Fetched transaction receipts")
 
-    # Fetch trace data
-    batch = W3.batch_requests()
-    for tx_hash in tx_list:
-        tx_hash = tx_hash.hex() if isinstance(tx_hash, HexBytes) else tx_hash
-        batch.add(W3.tracing.trace_transaction(tx_hash))
-    trace_results = batch.execute()
-    trace_details = trace_list_generator(block_results, trace_results, block_miners)
+    # # Fetch trace data - OLD. Superceded by batch funtion
+    # batch = W3.batch_requests()
+    # for tx_hash in tx_list:
+    #     tx_hash = tx_hash.hex() if isinstance(tx_hash, HexBytes) else tx_hash
+    #     batch.add(W3.tracing.trace_transaction(tx_hash))
+    # trace_results = batch.execute()
+    # trace_details = trace_list_generator(block_results, trace_results, block_miners)
+    # print(f"✅ Fetched transaction traces\n")
+
+    # With our new batched approach:
+    trace_details = fetch_trace_data_in_batches(W3, tx_list, block_results, block_miners)
     print(f"✅ Fetched transaction traces\n")
 
     updated_tx_results = asyncio.run(main(tx_results))
@@ -2027,9 +2102,9 @@ if __name__ == "__main__":
         if addr in ["0x1b9FcB24c533839dC847235bd8Eb80E37EC42f85",]:
             start_block_adj = start_block
         elif addr in ["0x0BdE59981FDEaC219Ce9E618d27F193438Bff786"]:
-            start_block_adj = start_block + 3000
+            start_block_adj = start_block + 0
         elif addr in ["0xe75eD6F453c602Bd696cE27AF11565eDc9b46B0D"]:
-            start_block_adj = start_block + 3000
+            start_block_adj = start_block + 0
         else:
             start_block_adj = start_block
 

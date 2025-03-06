@@ -17,3 +17,6 @@ __pycache__/
 # Extensions in folders
 reports/*.xlsx
 reports/*.csv
+
+# Specific files
+metadata.py
