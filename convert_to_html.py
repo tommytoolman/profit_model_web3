@@ -680,7 +680,7 @@ def generate_html_template(sheets_data: Dict, timestamp: str) -> str:
 if __name__ == "__main__":
     # Generate HTML report from Excel file
     excel_file = "MEV_daily_multiple_addresses_22016035_P&L.xlsx"
-    html_output = "blockchain_analysis_report.html"
+    html_output = "reports/blockchain_analysis_report.html"
     
     # Only keep these columns in the specified order
     columns_to_keep = [

@@ -4,7 +4,6 @@
 data/
 icons/
 libmev_data/
-reports/
 __pycache__/
 .ipynb_checkpoints/
 .vscode/
