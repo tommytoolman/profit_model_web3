@@ -12,6 +12,7 @@ __pycache__/
 # Specific extensions
 *.ipynb
 *.json
+*.xlsx
 *.zip
 
 # Extensions in folders
