@@ -863,7 +863,7 @@ class BundleFetcher:
                total_count = initial_response['count']
                all_data.extend(initial_response['data'])
 
-               self.pbar = tqdm(total=total_count, desc=f"   - Fetching libMEV bundles for {address[:10]}...")
+               self.pbar = tqdm(total=total_count, desc=f"   - Fetching libMEV bundles for {address[:10]}...", ncols=100)
                self.pbar.update(len(initial_response['data']))
 
                semaphore = asyncio.Semaphore(self.max_concurrent)
