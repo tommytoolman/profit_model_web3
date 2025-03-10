@@ -386,7 +386,6 @@ def process_initial_dataframe(df, address, balances):
         unique_values = series.explode().dropna().unique()
         return sorted(unique_values) if len(unique_values) > 1 else unique_values[0]
 
-
     def identify_withdrawals(row):
         if (row['methodId'].startswith('0x') and 
             pd.isna(row['functionName']) and 
@@ -423,6 +422,8 @@ def process_initial_dataframe(df, address, balances):
 
     # Skip the first row (no previous row to compare)
     sorted_df.loc[0, 'Profit'] = None
+
+    sorted_df['functionName'] = sorted_df.apply(identify_withdrawals, axis=1)
 
     # Rank profits in descending order (highest profit = rank 1)
     sorted_df['Profit_Rank'] = sorted_df['Profit'].rank(ascending=False, method='min').astype('Int64')

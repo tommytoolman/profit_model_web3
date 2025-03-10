@@ -842,3 +842,288 @@ UnboundLocalError: cannot access local variable 'batch_results' where it is not 
 2025-03-10 07:27:12,506 - __main__ - INFO - Completed processing for address 0xe75eD6F453c602Bd696cE27AF11565eDc9b46B0D
 2025-03-10 07:27:17,321 - __main__ - INFO - Added worksheet for 0xe75eD6
 2025-03-10 07:27:18,233 - __main__ - INFO - Analysis complete. Results saved to MEV_daily_multiple_addresses_22014920_P&L.xlsx
+2025-03-10 11:01:38,434 - __main__ - INFO - Getting block data for time period: yesterday
+2025-03-10 11:01:39,007 - __main__ - INFO - Starting from block: 22008882
+2025-03-10 11:01:39,008 - __main__ - INFO - Processing address: 0xc0ffeefeED8B9d271445cf5D1d24d74D2ca4235E
+2025-03-10 11:01:39,008 - __main__ - INFO - Processing address: 0xc0ffeefeED8B9d271445cf5D1d24d74D2ca4235E
+2025-03-10 11:01:43,241 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:01:43,241 - __main__ - INFO - Fetching 163 unique blocks
+2025-03-10 11:01:43,735 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:01:43,735 - __main__ - INFO - Fetching 163 transactions
+2025-03-10 11:01:44,036 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:01:44,037 - __main__ - INFO - Fetching 163 transaction receipts
+2025-03-10 11:01:44,805 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:01:44,805 - __main__ - INFO - Fetching 163 transaction traces
+2025-03-10 11:02:04,699 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:02:04,699 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:02:12,925 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:02:12,992 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:03:30,751 - __main__ - INFO - Completed processing for address 0xc0ffeefeED8B9d271445cf5D1d24d74D2ca4235E
+2025-03-10 11:03:31,289 - __main__ - WARNING - Bundle Tx Details header not found
+2025-03-10 11:03:31,350 - __main__ - INFO - Added worksheet for 0xc0ffee
+2025-03-10 11:03:31,350 - __main__ - INFO - Processing address: 0x1b9FcB24c533839dC847235bd8Eb80E37EC42f85
+2025-03-10 11:03:31,350 - __main__ - INFO - Processing address: 0x1b9FcB24c533839dC847235bd8Eb80E37EC42f85
+2025-03-10 11:03:36,243 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:03:36,244 - __main__ - INFO - Fetching 157 unique blocks
+2025-03-10 11:03:36,717 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:03:36,717 - __main__ - INFO - Fetching 157 transactions
+2025-03-10 11:03:37,042 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:03:37,042 - __main__ - INFO - Fetching 157 transaction receipts
+2025-03-10 11:03:37,605 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:03:37,605 - __main__ - INFO - Fetching 157 transaction traces
+2025-03-10 11:04:07,340 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:04:07,340 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:04:19,153 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:04:19,208 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:04:25,628 - __main__ - INFO - Completed processing for address 0x1b9FcB24c533839dC847235bd8Eb80E37EC42f85
+2025-03-10 11:04:26,579 - __main__ - INFO - Added worksheet for 0x1b9FcB
+2025-03-10 11:04:26,579 - __main__ - INFO - Processing address: 0x0b4e49d09a8AE348a51559F3d32002341657D4c5
+2025-03-10 11:04:26,580 - __main__ - INFO - Processing address: 0x0b4e49d09a8AE348a51559F3d32002341657D4c5
+2025-03-10 11:04:30,943 - __main__ - INFO - ✅ Processed balances for batch 1/2
+2025-03-10 11:04:31,238 - __main__ - INFO - ✅ Processed balances for batch 2/2
+2025-03-10 11:04:31,239 - __main__ - INFO - Fetching 226 unique blocks
+2025-03-10 11:04:31,817 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:04:31,817 - __main__ - INFO - Fetching 227 transactions
+2025-03-10 11:04:32,267 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:04:32,267 - __main__ - INFO - Fetching 227 transaction receipts
+2025-03-10 11:04:33,348 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:04:33,348 - __main__ - INFO - Fetching 227 transaction traces
+2025-03-10 11:05:03,352 - __main__ - ERROR - Error processing address 0x0b4e49d09a8AE348a51559F3d32002341657D4c5: HTTPConnectionPool(host='192.168.1.3', port=8545): Read timed out. (read timeout=30.0)
+Traceback (most recent call last):
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/opt/miniconda3/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/socket.py", line 708, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/lib/python3.12/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/opt/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='192.168.1.3', port=8545): Read timed out. (read timeout=30.0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wommy/Documents/GitHub/WEB3/profit_model/improved_profit.py", line 516, in process_address
+    batch_results = batch_request.execute()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/_utils/batching.py", line 147, in execute
+    responses = self.web3.manager._make_batch_request(self._requests_info)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/manager.py", line 464, in _make_batch_request
+    response = request_func(
+               ^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/middleware/base.py", line 70, in middleware
+    response = make_batch_request(req_processed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/middleware/base.py", line 70, in middleware
+    response = make_batch_request(req_processed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/middleware/base.py", line 70, in middleware
+    response = make_batch_request(req_processed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/providers/rpc/rpc.py", line 182, in make_batch_request
+    raw_response = self._request_session_manager.make_post_request(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/_utils/http_session_manager.py", line 145, in make_post_request
+    with self.get_response_from_post_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/web3/_utils/http_session_manager.py", line 127, in get_response_from_post_request
+    return session.post(endpoint_uri, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/requests/adapters.py", line 635, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='192.168.1.3', port=8545): Read timed out. (read timeout=30.0)
+2025-03-10 11:05:03,364 - __main__ - INFO - Processing address: 0x3eA68f362520Bfa09D2deFC6169eEDF9E9b70408
+2025-03-10 11:05:03,364 - __main__ - INFO - Processing address: 0x3eA68f362520Bfa09D2deFC6169eEDF9E9b70408
+2025-03-10 11:05:06,966 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:05:06,966 - __main__ - INFO - Fetching 87 unique blocks
+2025-03-10 11:05:07,286 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:05:07,286 - __main__ - INFO - Fetching 87 transactions
+2025-03-10 11:05:07,438 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:05:07,438 - __main__ - INFO - Fetching 87 transaction receipts
+2025-03-10 11:05:07,759 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:05:07,759 - __main__ - INFO - Fetching 87 transaction traces
+2025-03-10 11:05:21,488 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:05:21,492 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:05:27,942 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:05:28,000 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:05:35,342 - __main__ - INFO - Completed processing for address 0x3eA68f362520Bfa09D2deFC6169eEDF9E9b70408
+2025-03-10 11:05:36,279 - __main__ - INFO - Added worksheet for 0x3eA68f
+2025-03-10 11:05:36,279 - __main__ - INFO - Processing address: 0x9c4Ebb54625b1E93E987E287fa832BD2e0a854b7
+2025-03-10 11:05:36,279 - __main__ - INFO - Processing address: 0x9c4Ebb54625b1E93E987E287fa832BD2e0a854b7
+2025-03-10 11:05:41,762 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:05:41,762 - __main__ - INFO - Fetching 137 unique blocks
+2025-03-10 11:05:42,290 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:05:42,290 - __main__ - INFO - Fetching 137 transactions
+2025-03-10 11:05:42,521 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:05:42,521 - __main__ - INFO - Fetching 137 transaction receipts
+2025-03-10 11:05:43,028 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:05:43,028 - __main__ - INFO - Fetching 137 transaction traces
+2025-03-10 11:05:56,851 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:05:56,851 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:06:05,771 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:06:05,820 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:06:12,166 - __main__ - INFO - Completed processing for address 0x9c4Ebb54625b1E93E987E287fa832BD2e0a854b7
+2025-03-10 11:06:13,590 - __main__ - INFO - Added worksheet for 0x9c4Ebb
+2025-03-10 11:06:13,590 - __main__ - INFO - Processing address: 0x2Ee36E41387f87B7e6f678A86D1e575b23b996F5
+2025-03-10 11:06:13,591 - __main__ - INFO - Processing address: 0x2Ee36E41387f87B7e6f678A86D1e575b23b996F5
+2025-03-10 11:06:20,257 - __main__ - INFO - ✅ Processed balances for batch 1/2
+2025-03-10 11:06:20,953 - __main__ - INFO - ✅ Processed balances for batch 2/2
+2025-03-10 11:06:20,955 - __main__ - INFO - Fetching 210 unique blocks
+2025-03-10 11:06:21,739 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:06:21,739 - __main__ - INFO - Fetching 210 transactions
+2025-03-10 11:06:22,426 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:06:22,427 - __main__ - INFO - Fetching 210 transaction receipts
+2025-03-10 11:06:24,809 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:06:24,809 - __main__ - INFO - Fetching 210 transaction traces
+2025-03-10 11:06:36,170 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:06:36,170 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:06:46,643 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:06:46,724 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:06:52,787 - __main__ - INFO - Completed processing for address 0x2Ee36E41387f87B7e6f678A86D1e575b23b996F5
+2025-03-10 11:06:55,269 - __main__ - INFO - Added worksheet for 0x2Ee36E
+2025-03-10 11:06:55,269 - __main__ - INFO - Processing address: 0x346C802df3404BEC2f265603db28B815321251Ee
+2025-03-10 11:06:55,269 - __main__ - INFO - Processing address: 0x346C802df3404BEC2f265603db28B815321251Ee
+2025-03-10 11:07:00,185 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:07:00,185 - __main__ - INFO - Fetching 97 unique blocks
+2025-03-10 11:07:00,508 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:07:00,508 - __main__ - INFO - Fetching 97 transactions
+2025-03-10 11:07:00,674 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:07:00,674 - __main__ - INFO - Fetching 97 transaction receipts
+2025-03-10 11:07:01,231 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:07:01,231 - __main__ - INFO - Fetching 97 transaction traces
+2025-03-10 11:07:07,056 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:07:07,056 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:07:11,851 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:07:11,901 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:07:17,893 - __main__ - INFO - Completed processing for address 0x346C802df3404BEC2f265603db28B815321251Ee
+2025-03-10 11:07:18,815 - __main__ - INFO - Added worksheet for 0x346C80
+2025-03-10 11:07:18,815 - __main__ - INFO - Processing address: 0x3B25D8E0801df1264a3d3A5f0Bb79BBc292a09fb
+2025-03-10 11:07:18,815 - __main__ - INFO - Processing address: 0x3B25D8E0801df1264a3d3A5f0Bb79BBc292a09fb
+2025-03-10 11:07:22,545 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:07:22,545 - __main__ - INFO - Fetching 62 unique blocks
+2025-03-10 11:07:22,851 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:07:22,851 - __main__ - INFO - Fetching 62 transactions
+2025-03-10 11:07:22,990 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:07:22,991 - __main__ - INFO - Fetching 62 transaction receipts
+2025-03-10 11:07:23,412 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:07:23,412 - __main__ - INFO - Fetching 62 transaction traces
+2025-03-10 11:07:31,146 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:07:31,146 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:07:34,803 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:07:34,854 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:07:40,955 - __main__ - INFO - Completed processing for address 0x3B25D8E0801df1264a3d3A5f0Bb79BBc292a09fb
+2025-03-10 11:07:42,035 - __main__ - INFO - Added worksheet for 0x3B25D8
+2025-03-10 11:07:42,035 - __main__ - INFO - Processing address: 0x30A1B724c9DFe2e12A19ed84878312d199d1519E
+2025-03-10 11:07:42,035 - __main__ - INFO - Processing address: 0x30A1B724c9DFe2e12A19ed84878312d199d1519E
+2025-03-10 11:07:46,005 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:07:46,005 - __main__ - INFO - Fetching 49 unique blocks
+2025-03-10 11:07:47,222 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:07:47,222 - __main__ - INFO - Fetching 49 transactions
+2025-03-10 11:07:47,554 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:07:47,554 - __main__ - INFO - Fetching 49 transaction receipts
+2025-03-10 11:07:48,165 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:07:48,166 - __main__ - INFO - Fetching 49 transaction traces
+2025-03-10 11:07:50,387 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:07:50,387 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:07:52,720 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:07:52,764 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:07:58,868 - __main__ - INFO - Completed processing for address 0x30A1B724c9DFe2e12A19ed84878312d199d1519E
+2025-03-10 11:07:59,594 - __main__ - INFO - Added worksheet for 0x30A1B7
+2025-03-10 11:07:59,594 - __main__ - INFO - Processing address: 0x7bD7cAe2D2Ac926fdA8Fe0A7eD98e852e2B48730
+2025-03-10 11:07:59,594 - __main__ - INFO - Processing address: 0x7bD7cAe2D2Ac926fdA8Fe0A7eD98e852e2B48730
+2025-03-10 11:08:02,641 - __main__ - INFO - ✅ Processed balances for batch 1/1
+2025-03-10 11:08:02,641 - __main__ - INFO - Fetching 15 unique blocks
+2025-03-10 11:08:02,812 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:08:02,812 - __main__ - INFO - Fetching 15 transactions
+2025-03-10 11:08:02,874 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:08:02,874 - __main__ - INFO - Fetching 15 transaction receipts
+2025-03-10 11:08:03,012 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:08:03,012 - __main__ - INFO - Fetching 15 transaction traces
+2025-03-10 11:08:03,909 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:08:03,909 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:08:04,604 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:08:04,637 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:08:10,808 - __main__ - INFO - Completed processing for address 0x7bD7cAe2D2Ac926fdA8Fe0A7eD98e852e2B48730
+2025-03-10 11:08:11,370 - __main__ - INFO - Added worksheet for 0x7bD7cA
+2025-03-10 11:08:11,370 - __main__ - INFO - Processing address: 0x0BdE59981FDEaC219Ce9E618d27F193438Bff786
+2025-03-10 11:08:11,370 - __main__ - INFO - Processing address: 0x0BdE59981FDEaC219Ce9E618d27F193438Bff786
+2025-03-10 11:08:15,865 - __main__ - INFO - ✅ Processed balances for batch 1/5
+2025-03-10 11:08:16,858 - __main__ - INFO - ✅ Processed balances for batch 2/5
+2025-03-10 11:08:17,810 - __main__ - INFO - ✅ Processed balances for batch 3/5
+2025-03-10 11:08:18,828 - __main__ - INFO - ✅ Processed balances for batch 4/5
+2025-03-10 11:08:19,190 - __main__ - INFO - ✅ Processed balances for batch 5/5
+2025-03-10 11:08:19,191 - __main__ - INFO - Fetching 854 unique blocks
+2025-03-10 11:08:22,902 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:08:22,902 - __main__ - INFO - Fetching 854 transactions
+2025-03-10 11:08:24,913 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:08:24,913 - __main__ - INFO - Fetching 854 transaction receipts
+2025-03-10 11:08:29,739 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:08:29,739 - __main__ - INFO - Fetching 854 transaction traces
+2025-03-10 11:09:20,991 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:09:20,991 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:11:42,873 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:11:43,071 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:11:55,215 - __main__ - INFO - Completed processing for address 0x0BdE59981FDEaC219Ce9E618d27F193438Bff786
+2025-03-10 11:12:01,246 - __main__ - INFO - Added worksheet for 0x0BdE59
+2025-03-10 11:12:01,247 - __main__ - INFO - Processing address: 0xe75eD6F453c602Bd696cE27AF11565eDc9b46B0D
+2025-03-10 11:12:01,247 - __main__ - INFO - Processing address: 0xe75eD6F453c602Bd696cE27AF11565eDc9b46B0D
+2025-03-10 11:12:07,111 - __main__ - INFO - ✅ Processed balances for batch 1/3
+2025-03-10 11:12:08,205 - __main__ - INFO - ✅ Processed balances for batch 2/3
+2025-03-10 11:12:08,617 - __main__ - INFO - ✅ Processed balances for batch 3/3
+2025-03-10 11:12:08,617 - __main__ - INFO - Fetching 442 unique blocks
+2025-03-10 11:12:09,965 - __main__ - INFO - ✅ Fetched blocks
+2025-03-10 11:12:09,965 - __main__ - INFO - Fetching 445 transactions
+2025-03-10 11:12:11,546 - __main__ - INFO - ✅ Fetched transactions
+2025-03-10 11:12:11,546 - __main__ - INFO - Fetching 445 transaction receipts
+2025-03-10 11:12:20,011 - __main__ - INFO - ✅ Fetched transaction receipts
+2025-03-10 11:12:20,011 - __main__ - INFO - Fetching 445 transaction traces
+2025-03-10 11:13:00,689 - __main__ - INFO - ✅ Fetched transaction traces
+2025-03-10 11:13:00,689 - __main__ - INFO - Processing transaction simulations
+2025-03-10 11:13:25,447 - __main__ - INFO - Processing data into dataframes
+2025-03-10 11:13:25,557 - __main__ - INFO - Fetching libMEV data
+2025-03-10 11:13:46,766 - __main__ - INFO - Completed processing for address 0xe75eD6F453c602Bd696cE27AF11565eDc9b46B0D
+2025-03-10 11:13:51,476 - __main__ - INFO - Added worksheet for 0xe75eD6
+2025-03-10 11:13:52,396 - __main__ - INFO - Analysis complete. Results saved to MEV_daily_multiple_addresses_22016035_P&L.xlsx
